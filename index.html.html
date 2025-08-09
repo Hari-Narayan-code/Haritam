@@ -1,0 +1,1511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haritam - Authentic South Indian Vegetarian Restaurant | Mylapore, Chennai</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --beige: #F5E6D3;
+            --dark-beige: #E8D5C4;
+            --olive: #556B2F;
+            --dark-olive: #3A4A21;
+            --light-olive: #7A8F4A;
+            --white: #FFFFFF;
+            --shadow: rgba(85, 107, 47, 0.1);
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: var(--beige);
+            color: var(--olive);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--dark-olive);
+            margin-bottom: 1rem;
+        }
+
+        h1 { font-size: 3rem; }
+        h2 { font-size: 2.5rem; }
+        h3 { font-size: 1.8rem; }
+
+        /* Navigation */
+        nav {
+            background: linear-gradient(135deg, var(--white) 0%, var(--beige) 100%);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px var(--shadow);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--dark-olive);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo::before {
+            content: "🍃";
+            margin-right: 0.5rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--olive);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+            padding: 0.5rem 1rem;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--light-olive);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 80%;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--dark-olive);
+        }
+
+        /* Reserve Button */
+        .reserve-btn {
+            background: var(--olive);
+            color: var(--white) !important;
+            padding: 0.8rem 2rem !important;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px var(--shadow);
+        }
+
+        .reserve-btn:hover {
+            background: var(--dark-olive);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px var(--shadow);
+        }
+
+        /* Page Container */
+        .page {
+            display: none;
+            padding-top: 100px;
+            min-height: 100vh;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(135deg, rgba(245, 230, 211, 0.9), rgba(85, 107, 47, 0.1)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><rect fill="%23F5E6D3"/><g opacity="0.1"><path fill="%23556B2F" d="M0 540l40-18.7c40-18.6 120-56 200-46.6 80 9.3 160 65.3 240 56 80-9.3 160-84.3 240-112.5s160 0.5 240 37.8c80 37.3 160 65.3 240 37.5 80-28 160-112 240-130.7 80-18.6 160 28 200 46.7l40 18.5v652H0z"/></g></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            padding: 2rem;
+            animation: slideUp 1s ease;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--olive);
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: var(--olive);
+            color: var(--white);
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+
+        .btn-primary:hover {
+            background: var(--dark-olive);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px var(--shadow);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--olive);
+            border: 2px solid var(--olive);
+        }
+
+        .btn-secondary:hover {
+            background: var(--olive);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        /* Features Grid */
+        .features {
+            padding: 4rem 2rem;
+            background: var(--white);
+            margin: 2rem 0;
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--beige);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent, var(--light-olive));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px var(--shadow);
+        }
+
+        .feature-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Menu Section */
+        .menu-filters {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 3rem 0;
+            padding: 0 2rem;
+        }
+
+        .filter-btn {
+            padding: 0.8rem 1.5rem;
+            background: var(--white);
+            border: 2px solid var(--olive);
+            color: var(--olive);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--olive);
+            color: var(--white);
+            transform: scale(1.05);
+        }
+
+        .menu-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .menu-item {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px var(--shadow);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 30px var(--shadow);
+        }
+
+        .menu-item-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--beige), var(--dark-beige));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-item-image::after {
+            content: '🍛';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            opacity: 0.5;
+        }
+
+        .menu-item-content {
+            padding: 1.5rem;
+        }
+
+        .menu-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .menu-item h3 {
+            font-size: 1.3rem;
+            color: var(--dark-olive);
+        }
+
+        .menu-price {
+            font-size: 1.2rem;
+            color: var(--olive);
+            font-weight: bold;
+        }
+
+        .menu-description {
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .menu-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            padding: 0.3rem 0.8rem;
+            background: var(--beige);
+            color: var(--olive);
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            height: 300px;
+            background: linear-gradient(135deg, var(--beige), var(--dark-beige));
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px var(--shadow);
+        }
+
+        .gallery-item::before {
+            content: attr(data-caption);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover::before {
+            transform: translateY(0);
+        }
+
+        /* Contact Section */
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px var(--shadow);
+        }
+
+        .contact-info h3 {
+            margin-bottom: 2rem;
+            color: var(--dark-olive);
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            color: var(--olive);
+        }
+
+        .info-item i {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            color: var(--light-olive);
+        }
+
+        .map-container {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px var(--shadow);
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .map-placeholder {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Forms */
+        .form-container {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px var(--shadow);
+            max-width: 600px;
+            margin: 2rem auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--dark-olive);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--beige);
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: var(--beige);
+            color: var(--olive);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--olive);
+            background: var(--white);
+            transform: scale(1.02);
+        }
+
+        /* Newsletter */
+        .newsletter {
+            background: linear-gradient(135deg, var(--olive), var(--dark-olive));
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newsletter::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .newsletter h3 {
+            color: var(--white);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .newsletter p {
+            color: var(--beige);
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            gap: 1rem;
+            position: relative;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 1rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+        }
+
+        .newsletter-form button {
+            padding: 1rem 2rem;
+            background: var(--white);
+            color: var(--olive);
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 3rem 2rem;
+            background: var(--white);
+        }
+
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .testimonial {
+            padding: 2rem;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .testimonial-text {
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--olive);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--dark-olive);
+        }
+
+        .rating {
+            color: #FFD700;
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-olive);
+            color: var(--beige);
+            padding: 3rem 2rem 1rem;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section a {
+            color: var(--beige);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--white);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: var(--beige);
+            color: var(--dark-olive);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(245, 230, 211, 0.2);
+            color: var(--beige);
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--olive);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 2rem;
+                transition: left 0.3s ease;
+                box-shadow: 0 5px 20px var(--shadow);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+
+        /* Loading Animation */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--beige);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid var(--beige);
+            border-top: 5px solid var(--olive);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Decorative Pattern */
+        .pattern-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.05;
+            background-image: repeating-linear-gradient(
+                45deg,
+                var(--olive) 0,
+                var(--olive) 1px,
+                transparent 1px,
+                transparent 15px
+            );
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo" onclick="showPage('home')">Haritam</a>
+            <button class="menu-toggle" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#" onclick="showPage('home')" class="nav-link active">Home</a></li>
+                <li><a href="#" onclick="showPage('about')" class="nav-link">About</a></li>
+                <li><a href="#" onclick="showPage('menu')" class="nav-link">Menu</a></li>
+                <li><a href="#" onclick="showPage('gallery')" class="nav-link">Gallery</a></li>
+                <li><a href="#" onclick="showPage('contact')" class="nav-link">Contact</a></li>
+                <li><a href="#" onclick="showPage('blog')" class="nav-link">Blog</a></li>
+                <li><a href="#" onclick="showReservation()" class="reserve-btn">Reserve Table</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <section class="hero">
+            <div class="pattern-overlay"></div>
+            <div class="hero-content">
+                <h1>Welcome to Haritam</h1>
+                <p class="hero-subtitle">Where tradition meets wellness in every bite</p>
+                <div class="hero-buttons">
+                    <a href="#" onclick="showPage('menu')" class="btn-primary">Explore Menu</a>
+                    <a href="#" onclick="showReservation()" class="btn-secondary">Book a Table</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <h2 style="text-align: center; margin-bottom: 2rem;">Experience Excellence</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🌿</span>
+                    <h3>Pure Vegetarian</h3>
+                    <p>100% vegetarian cuisine crafted with the freshest ingredients from local farms</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🏛️</span>
+                    <h3>Traditional Architecture</h3>
+                    <p>Rustic South Indian ambiance with authentic architectural elements</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">✨</span>
+                    <h3>Pristine Environment</h3>
+                    <p>Impeccable cleanliness standards for your comfort and safety</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🍃</span>
+                    <h3>Healthy Cuisine</h3>
+                    <p>Nutritious meals prepared with traditional cooking methods</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <h2 style="text-align: center; margin-bottom: 2rem;">What Our Guests Say</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial">
+                    <p class="testimonial-text">"The most authentic South Indian experience in Chennai. The ambiance takes you back to traditional times while the food is simply divine."</p>
+                    <p class="testimonial-author">- Priya Sharma</p>
+                    <div class="rating">★★★★★</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="newsletter">
+            <h3>Stay Connected</h3>
+            <p>Get exclusive offers and updates about special events</p>
+            <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </section>
+    </div>
+
+    <!-- About Page -->
+    <div id="about" class="page">
+        <section style="padding: 3rem 2rem; max-width: 1200px; margin: 0 auto;">
+            <h1 style="text-align: center; margin-bottom: 3rem;">Our Story</h1>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 3rem;">
+                <div style="background: var(--white); padding: 2rem; border-radius: 20px;">
+                    <h3>Heritage & Tradition</h3>
+                    <p style="line-height: 1.8; color: #666;">
+                        Nestled in the heart of Mylapore, Haritam stands as a testament to South India's rich culinary heritage. Our restaurant was born from a passion to preserve and celebrate the authentic flavors of traditional vegetarian cuisine while embracing modern standards of excellence.
+                    </p>
+                    <p style="line-height: 1.8; color: #666; margin-top: 1rem;">
+                        Every dish at Haritam tells a story - from recipes passed down through generations to innovative creations that honor our roots while delighting contemporary palates.
+                    </p>
+                </div>
+                <div style="background: var(--white); padding: 2rem; border-radius: 20px;">
+                    <h3>Our Philosophy</h3>
+                    <p style="line-height: 1.8; color: #666;">
+                        We believe that food is not just sustenance but a celebration of life, culture, and community. Our commitment to using only the freshest, locally-sourced ingredients ensures that every meal is not only delicious but also nutritious and sustainable.
+                    </p>
+                    <p style="line-height: 1.8; color: #666; margin-top: 1rem;">
+                        The rustic architecture of our space, with its traditional elements and warm ambiance, creates an environment where families gather, friends reconnect, and memories are made.
+                    </p>
+                </div>
+            </div>
+
+            <div style="background: linear-gradient(135deg, var(--beige), var(--white)); padding: 3rem; border-radius: 20px; text-align: center;">
+                <h3>Our Commitment</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                    <div>
+                        <i class="fas fa-leaf" style="font-size: 2rem; color: var(--olive); margin-bottom: 1rem;"></i>
+                        <h4>Quality Ingredients</h4>
+                        <p>Handpicked, fresh, and organic produce</p>
+                    </div>
+                    <div>
+                        <i class="fas fa-heart" style="font-size: 2rem; color: var(--olive); margin-bottom: 1rem;"></i>
+                        <h4>Health First</h4>
+                        <p>Nutritious meals without compromising taste</p>
+                    </div>
+                    <div>
+                        <i class="fas fa-award" style="font-size: 2rem; color: var(--olive); margin-bottom: 1rem;"></i>
+                        <h4>Excellence</h4>
+                        <p>Award-winning service and cuisine</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Menu Page -->
+    <div id="menu" class="page">
+        <section style="padding: 3rem 2rem;">
+            <h1 style="text-align: center; margin-bottom: 2rem;">Our Menu</h1>
+            <p style="text-align: center; color: var(--olive); max-width: 600px; margin: 0 auto 3rem;">
+                Discover the authentic flavors of South India, crafted with love and served with pride
+            </p>
+            
+            <div class="menu-filters">
+                <button class="filter-btn active" onclick="filterMenu('all')">All Items</button>
+                <button class="filter-btn" onclick="filterMenu('starters')">Starters</button>
+                <button class="filter-btn" onclick="filterMenu('mains')">Main Course</button>
+                <button class="filter-btn" onclick="filterMenu('desserts')">Desserts</button>
+                <button class="filter-btn" onclick="filterMenu('beverages')">Beverages</button>
+                <button class="filter-btn" onclick="filterMenu('vegan')">Vegan</button>
+                <button class="filter-btn" onclick="filterMenu('glutenfree')">Gluten-Free</button>
+            </div>
+
+            <div class="menu-grid" id="menuGrid">
+                <!-- Starters -->
+                <div class="menu-item" data-category="starters">
+                    <div class="menu-item-image"></div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3>Medu Vada</h3>
+                            <span class="menu-price">₹120</span>
+                        </div>
+                        <p class="menu-description">Crispy lentil donuts served with sambar and three chutneys</p>
+                        <div class="menu-tags">
+                            <span class="tag">Gluten-Free</span>
+                            <span class="tag">Vegan</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="starters">
+                    <div class="menu-item-image"></div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3>Paneer Tikka</h3>
+                            <span class="menu-price">₹180</span>
+                        </div>
+                        <p class="menu-description">Grilled cottage cheese marinated in aromatic spices</p>
+                        <div class="menu-tags">
+                            <span class="tag">Gluten-Free</span>
+                            <span class="tag">Spicy</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Courses -->
+                <div class="menu-item" data-category="mains">
+                    <div class="menu-item-image"></div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3>Masala Dosa</h3>
+                            <span class="menu-price">₹150</span>
+                        </div>
+                        <p class="menu-description">Crispy rice crepe filled with spiced potato, served with sambar and chutneys</p>
+                        <div class="menu-tags">
+                            <span class="tag">Signature</span>
+                            <span class="tag">Vegan</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="mains">
+                    <div class="menu-item-image"></div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3>Chettinad Vegetable Curry</h3>
+                            <span class="menu-price">₹220</span>
+                        </div>
+                        <p class="menu-description">Spicy mixed vegetables in authentic Chettinad gravy</p>
+                        <div class="menu-tags">
+                            <span class="tag">Spicy</span>
+                            <span class="tag">Vegan</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="mains">
+                    <div class="menu-item-image"></div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3>Bisi Bele Bath</h3>
+                            <span class="menu-price">₹190</span>
+                        </div>
+                        <p class="menu-description">Traditional rice and lentil dish with vegetables and aromatic spices</p>
+                        <div class="menu-tags">
+                            <span class="tag">Comfort Food</span>
+                            <span class="tag">Gluten-Free</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Desserts -->
+                <div class="menu-item" data-category="desserts">
+                    <div class="menu-item-image"></div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3>Mysore Pak</h3>
+                            <span class="menu-price">₹90</span>
+                        </div>
+                        <p class="menu-description">Traditional sweet made with gram flour, ghee, and sugar</p>
+                        <div class="menu-tags">
+                            <span class="tag">Sweet</span>
+                            <span class="tag">Traditional</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="desserts">
+                    <div class="menu-item-image"></div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3>Payasam</h3>
+                            <span class="menu-price">₹80</span>
+                        </div>
+                        <p class="menu-description">Creamy rice pudding with cardamom and nuts</p>
+                        <div class="menu-tags">
+                            <span class="tag">Sweet</span>
+                            <span class="tag">Gluten-Free</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Beverages -->
+                <div class="menu-item" data-category="beverages">
+                    <div class="menu-item-image"></div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3>Filter Coffee</h3>
+                            <span class="menu-price">₹60</span>
+                        </div>
+                        <p class="menu-description">Authentic South Indian filter coffee served hot</p>
+                        <div class="menu-tags">
+                            <span class="tag">Hot Beverage</span>
+                            <span class="tag">Traditional</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="beverages">
+                    <div class="menu-item-image"></div>
+                    <div class="menu-item-content">
+                        <div class="menu-item-header">
+                            <h3>Buttermilk</h3>
+                            <span class="menu-price">₹40</span>
+                        </div>
+                        <p class="menu-description">Refreshing spiced yogurt drink with curry leaves</p>
+                        <div class="menu-tags">
+                            <span class="tag">Cold Beverage</span>
+                            <span class="tag">Probiotic</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Gallery Page -->
+    <div id="gallery" class="page">
+        <section style="padding: 3rem 2rem;">
+            <h1 style="text-align: center; margin-bottom: 2rem;">Gallery</h1>
+            <p style="text-align: center; color: var(--olive); max-width: 600px; margin: 0 auto 3rem;">
+                Experience the visual journey of Haritam's ambiance and culinary artistry
+            </p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item" data-caption="Traditional South Indian Architecture" onclick="openLightbox(this)">
+                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #8B7355, #D2B48C); display: flex; align-items: center; justify-content: center;">
+                        <span style="font-size: 3rem;">🏛️</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-caption="Authentic Dining Experience" onclick="openLightbox(this)">
+                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #556B2F, #8FBC8F); display: flex; align-items: center; justify-content: center;">
+                        <span style="font-size: 3rem;">🍽️</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-caption="Fresh Ingredients Daily" onclick="openLightbox(this)">
+                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #CD853F, #DEB887); display: flex; align-items: center; justify-content: center;">
+                        <span style="font-size: 3rem;">🌿</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-caption="Master Chefs at Work" onclick="openLightbox(this)">
+                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #8B4513, #D2691E); display: flex; align-items: center; justify-content: center;">
+                        <span style="font-size: 3rem;">👨‍🍳</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-caption="Signature Dishes" onclick="openLightbox(this)">
+                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #B8860B, #FFD700); display: flex; align-items: center; justify-content: center;">
+                        <span style="font-size: 3rem;">🍛</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-caption="Warm Ambiance" onclick="openLightbox(this)">
+                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #8B7D6B, #CDC0B0); display: flex; align-items: center; justify-content: center;">
+                        <span style="font-size: 3rem;">✨</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact" class="page">
+        <section style="padding: 3rem 2rem;">
+            <h1 style="text-align: center; margin-bottom: 3rem;">Visit Us</h1>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Address</strong><br>
+                            123, Luz Church Road<br>
+                            Mylapore, Chennai - 600004<br>
+                            Tamil Nadu, India
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <strong>Phone</strong><br>
+                            +91 44 2499 0000<br>
+                            +91 98765 43210
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Email</strong><br>
+                            info@haritam.com<br>
+                            reservations@haritam.com
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>Opening Hours</strong><br>
+                            Monday - Sunday<br>
+                            Lunch: 12:00 PM - 3:30 PM<br>
+                            Dinner: 7:00 PM - 10:30 PM
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="map-container">
+                    <div class="map-placeholder">
+                        <i class="fas fa-map-marked-alt" style="font-size: 4rem; color: var(--olive); margin-bottom: 1rem;"></i>
+                        <h3>Find Us on Google Maps</h3>
+                        <p style="color: #666;">Interactive map would be embedded here</p>
+                        <a href="https://maps.google.com" target="_blank" class="btn-primary" style="margin-top: 1rem;">Open in Google Maps</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-container">
+                <h3 style="text-align: center; margin-bottom: 2rem;">Send us a Message</h3>
+                <form onsubmit="handleContactForm(event)">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="tel">
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!-- Blog Page -->
+    <div id="blog" class="page">
+        <section style="padding: 3rem 2rem; max-width: 1200px; margin: 0 auto;">
+            <h1 style="text-align: center; margin-bottom: 3rem;">Blog & News</h1>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
+                <article style="background: var(--white); border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px var(--shadow);">
+                    <div style="height: 200px; background: linear-gradient(135deg, var(--beige), var(--dark-beige)); display: flex; align-items: center; justify-content: center;">
+                        <span style="font-size: 3rem;">📰</span>
+                    </div>
+                    <div style="padding: 2rem;">
+                        <h3>The Art of Traditional South Indian Cooking</h3>
+                        <p style="color: #666; margin: 1rem 0;">Discover the secrets behind our authentic recipes and traditional cooking methods passed down through generations...</p>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="color: var(--light-olive); font-size: 0.9rem;">August 10, 2025</span>
+                            <a href="#" style="color: var(--olive); text-decoration: none; font-weight: 600;">Read More →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article style="background: var(--white); border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px var(--shadow);">
+                    <div style="height: 200px; background: linear-gradient(135deg, var(--beige), var(--dark-beige)); display: flex; align-items: center; justify-content: center;">
+                        <span style="font-size: 3rem;">🎉</span>
+                    </div>
+                    <div style="padding: 2rem;">
+                        <h3>Special Weekend Brunch Menu Launch</h3>
+                        <p style="color: #666; margin: 1rem 0;">Join us this weekend for our exclusive brunch menu featuring traditional breakfast delicacies...</p>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="color: var(--light-olive); font-size: 0.9rem;">August 8, 2025</span>
+                            <a href="#" style="color: var(--olive); text-decoration: none; font-weight: 600;">Read More →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article style="background: var(--white); border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px var(--shadow);">
+                    <div style="height: 200px; background: linear-gradient(135deg, var(--beige), var(--dark-beige)); display: flex; align-items: center; justify-content: center;">
+                        <span style="font-size: 3rem;">🌱</span>
+                    </div>
+                    <div style="padding: 2rem;">
+                        <h3>Our Commitment to Sustainability</h3>
+                        <p style="color: #666; margin: 1rem 0;">Learn about our eco-friendly practices and partnerships with local organic farmers...</p>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="color: var(--light-olive); font-size: 0.9rem;">August 5, 2025</span>
+                            <a href="#" style="color: var(--olive); text-decoration: none; font-weight: 600;">Read More →</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </div>
+
+    <!-- Reservation Modal -->
+    <div id="reservationModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 2000; justify-content: center; align-items: center;">
+        <div class="form-container" style="position: relative; max-height: 90vh; overflow-y: auto;">
+            <button onclick="closeReservation()" style="position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--olive);">×</button>
+            <h3 style="text-align: center; margin-bottom: 2rem;">Reserve Your Table</h3>
+            <form onsubmit="handleReservation(event)">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" required>
+                </div>
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input type="tel" required>
+                </div>
+                <div class="form-group">
+                    <label>Date</label>
+                    <input type="date" required>
+                </div>
+                <div class="form-group">
+                    <label>Time</label>
+                    <select required>
+                        <option value="">Select Time</option>
+                        <option value="12:00">12:00 PM</option>
+                        <option value="12:30">12:30 PM</option>
+                        <option value="13:00">1:00 PM</option>
+                        <option value="13:30">1:30 PM</option>
+                        <option value="14:00">2:00 PM</option>
+                        <option value="14:30">2:30 PM</option>
+                        <option value="19:00">7:00 PM</option>
+                        <option value="19:30">7:30 PM</option>
+                        <option value="20:00">8:00 PM</option>
+                        <option value="20:30">8:30 PM</option>
+                        <option value="21:00">9:00 PM</option>
+                        <option value="21:30">9:30 PM</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Number of Guests</label>
+                    <select required>
+                        <option value="">Select Guests</option>
+                        <option value="1">1 Person</option>
+                        <option value="2">2 People</option>
+                        <option value="3">3 People</option>
+                        <option value="4">4 People</option>
+                        <option value="5">5 People</option>
+                        <option value="6">6 People</option>
+                        <option value="7+">7+ People</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Special Requirements</label>
+                    <textarea rows="3" placeholder="Any dietary restrictions or special requests?"></textarea>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%;">Confirm Reservation</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Haritam Restaurant</h4>
+                <p>Experience the authentic taste of South India in an upscale, traditional setting.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="#" onclick="showPage('menu')">Menu</a>
+                <a href="#" onclick="showPage('about')">About Us</a>
+                <a href="#" onclick="showReservation()">Reservations</a>
+                <a href="#" onclick="showPage('contact')">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h4>Information</h4>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Health & Safety</a>
+                <a href="#">Careers</a>
+            </div>
+            <div class="footer-section">
+                <h4>Newsletter</h4>
+                <p>Subscribe for exclusive offers and updates</p>
+                <form onsubmit="handleNewsletter(event)" style="margin-top: 1rem;">
+                    <input type="email" placeholder="Your email" style="width: 100%; padding: 0.8rem; border: none; border-radius: 25px; margin-bottom: 0.5rem;">
+                    <button type="submit" class="btn-secondary" style="width: 100%;">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Haritam Restaurant. All rights reserved. | Designed with 💚 in Chennai</p>
+        </div>
+    </footer>
+
+    <script>
+        // Page Navigation
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update active nav link
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => link.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Close mobile menu if open
+            document.getElementById('navLinks').classList.remove('active');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        // Menu Filter
+        function filterMenu(category) {
+            const items = document.querySelectorAll('.menu-item');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            // Update active button
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Filter items
+            items.forEach(item => {
+                if (category === 'all') {
+                    item.style.display = 'block';
+                } else {
+                    const itemCategories = item.dataset.category;
+                    const itemTags = item.querySelectorAll('.tag');
+                    let shouldShow = false;
+                    
+                    if (itemCategories === category) {
+                        shouldShow = true;
+                    } else {
+                        itemTags.forEach(tag => {
+                            if (tag.textContent.toLowerCase().replace(/[^a-z]/g, '') === category) {
+                                shouldShow = true;
+                            }
+                        });
+                    }
+                    
+                    item.style.display = shouldShow ? 'block' : 'none';
+                }
+            });
+        }
+
+        // Reservation Modal
+        function showReservation() {
+            document.getElementById('reservationModal').style.display = 'flex';
+        }
+
+        function closeReservation() {
+            document.getElementById('reservationModal').style.display = 'none';
+        }
+
+        // Form Handlers
+        function handleReservation(event) {
+            event.preventDefault();
+            alert('Thank you for your reservation! We will confirm your booking via email shortly.');
+            closeReservation();
+            event.target.reset();
+        }
+
+        function handleContactForm(event) {
+            event.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            event.target.reset();
+        }
+
+        function handleNewsletter(event) {
+            event.preventDefault();
+            alert('Thank you for subscribing! Check your email for exclusive offers.');
+            event.target.reset();
+        }
+
+        // Lightbox for Gallery
+        function openLightbox(element) {
+            const caption = element.dataset.caption;
+            alert('Gallery: ' + caption + '\n\nIn a full implementation, this would open a beautiful lightbox with the image.');
+        }
+
+        // Loader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+            }, 1000);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Add parallax effect on scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.hero');
+            if (parallax) {
+                parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+    </script>
+</body>
+</html>
