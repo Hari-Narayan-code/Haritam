@@ -38,3 +38,28 @@ Mobile-first, high-performance, accessible static site for Haritam.
 
 - Placeholder images are SVGs under `assets/img/`. Replace with optimized AVIF/WebP/JPG and update HTML if needed.
 - For production, self-host fonts as WOFF2 and reference via `@font-face`.
+
+## Image optimization
+
+1) Install dependencies:
+
+```bash
+cd haritam-site
+npm install
+```
+
+2) Run optimizer with your source folder (absolute path recommended). On Windows, wrap path in quotes:
+
+```bash
+npm run optimize:images -- "C:\\Users\\Hari\\Desktop\\HARITHAM IMAGES\\Krea AI\\Website Pictures"
+```
+
+- Outputs go to `assets/img` with responsive sizes: `name-1600.(avif|webp|jpg)`, `name-1200.*`, `name-800.*`, and `name-thumb.*`.
+- Replace the SVG placeholders in HTML with the generated assets. I can wire this automatically if you share which filenames map to hero, gallery, etc.
+3) Wire images into pages automatically:
+
+```bash
+npm run wire:images
+```
+
+- This replaces the homepage hero and gallery thumbnails with the optimized outputs.
