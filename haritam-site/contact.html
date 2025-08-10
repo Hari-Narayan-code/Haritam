@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact — Haritam Restaurant</title>
+    <meta name="description" content="Contact Haritam for inquiries, feedback, and private dining." />
+    <meta property="og:title" content="Contact Haritam" />
+    <meta property="og:description" content="Get in touch with Haritam Restaurant." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://haritam.example/contact.html" />
+    <link rel="stylesheet" href="/assets/css/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header" role="banner">
+      <div class="container nav">
+        <a class="logo" href="/">Haritam</a>
+        <button class="nav__toggle" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu">
+          <span class="nav__bar" aria-hidden="true"></span>
+          <span class="nav__bar" aria-hidden="true"></span>
+          <span class="nav__bar" aria-hidden="true"></span>
+        </button>
+        <nav class="nav__links" aria-label="Primary">
+          <a href="/index.html" class="nav__link">Home</a>
+          <a href="/menu.html" class="nav__link">Our Menu</a>
+          <a href="/reservations.html" class="nav__link">Reservations</a>
+          <a href="/our-story.html" class="nav__link">Our Story</a>
+          <a href="/contact.html" class="nav__link is-active">Contact</a>
+        </nav>
+        <a class="btn btn--primary nav__cta" href="/reservations.html">Make a Reservation</a>
+      </div>
+      <div id="mobile-menu" class="nav__drawer" hidden>
+        <nav class="nav__drawer-inner" aria-label="Mobile">
+          <a href="/index.html" class="nav__link">Home</a>
+          <a href="/menu.html" class="nav__link">Our Menu</a>
+          <a href="/reservations.html" class="nav__link">Reservations</a>
+          <a href="/our-story.html" class="nav__link">Our Story</a>
+          <a href="/contact.html" class="nav__link is-active">Contact</a>
+          <a class="btn btn--primary w-100 mt-16" href="/reservations.html">Make a Reservation</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="section">
+      <div class="container">
+        <h1 class="section__title">Contact Us</h1>
+        <p class="section__lead">We’d love to hear from you. For reservations, please use the reservation form.</p>
+
+        <form id="contact-form" class="form needs-validation" novalidate>
+          <div class="grid form__grid">
+            <div class="form__field">
+              <label for="c-name">Full Name</label>
+              <input id="c-name" name="name" type="text" required autocomplete="name" />
+              <p class="field__error" aria-live="polite"></p>
+            </div>
+            <div class="form__field">
+              <label for="c-email">Email</label>
+              <input id="c-email" name="email" type="email" required autocomplete="email" />
+              <p class="field__error" aria-live="polite"></p>
+            </div>
+            <div class="form__field">
+              <label for="c-message">Message</label>
+              <textarea id="c-message" name="message" rows="5" required></textarea>
+              <p class="field__error" aria-live="polite"></p>
+            </div>
+          </div>
+          <div class="mt-16">
+            <button class="btn btn--primary" type="submit">Send Message</button>
+          </div>
+        </form>
+
+        <div id="contact-success" class="toast" hidden role="status" aria-live="polite">
+          Thank you for reaching out. We will reply shortly.
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <div class="container footer__grid">
+        <div>
+          <h3 class="footer__title">Haritam</h3>
+          <p>123 Heritage Lane, Chennai, TN 600001</p>
+          <p>+91-98765-43210</p>
+          <p>Open daily 11:30 – 22:30</p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul class="footer__links">
+            <li><a href="/menu.html">Our Menu</a></li>
+            <li><a href="/reservations.html">Reservations</a></li>
+            <li><a href="/our-story.html">Our Story</a></li>
+            <li><a href="/gallery.html">Gallery</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Trust & Legal</h4>
+          <ul class="footer__links">
+            <li><a href="/privacy.html">Privacy Policy</a></li>
+            <li><a href="/terms.html">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="container footer__bottom">
+        <p>&copy; <span id="year"></span> Haritam Restaurant. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script type="module" src="/assets/js/main.js" defer></script>
+  </body>
+</html>

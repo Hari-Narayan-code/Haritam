@@ -1,0 +1,13 @@
+{
+  "name": "haritam-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "optimize:images": "node scripts/optimize-images.mjs",
+    "wire:images": "node scripts/wire-images.mjs"
+  },
+  "dependencies": {
+    "sharp": "^0.33.3"
+  }
+}
