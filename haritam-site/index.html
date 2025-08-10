@@ -11,9 +11,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet" />
 
-    <link rel="icon" href="/assets/img/icon.png" sizes="any" />
-    <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" />
+    <link rel="icon" href="/assets/img/icon.svg" sizes="any" />
+    <link rel="apple-touch-icon" href="/assets/img/icon.svg" />
     <link rel="manifest" href="/site.webmanifest" />
+    <link rel="preload" as="image" href="/assets/img/hero.svg" />
 
     <meta property="og:title" content="Haritam Restaurant" />
     <meta property="og:description" content="Rustic elegance meets healthy South Indian cuisine. Reserve your table." />
@@ -95,11 +96,7 @@
             <a class="btn btn--secondary" href="/menu.html">Explore Menu</a>
           </div>
         </div>
-        <picture>
-          <source srcset="/assets/img/hero.avif" type="image/avif" />
-          <source srcset="/assets/img/hero.webp" type="image/webp" />
-          <img class="hero__image" src="/assets/img/hero.jpg" alt="Sunlit dining room at Haritam with wooden textures and brass accents" loading="eager" />
-        </picture>
+        <img class="hero__image" src="/assets/img/hero.svg" alt="Sunlit dining room at Haritam with wooden textures and brass accents" loading="eager" />
       </section>
 
       <section class="about section" aria-labelledby="about-title">
@@ -151,17 +148,17 @@
         <div class="container" data-reveal>
           <h2 id="gallery-title" class="section__title">Gallery</h2>
           <div class="grid thumbs">
-            <a href="/assets/img/dish1.jpg" class="thumb" data-lightbox data-caption="Hand-pounded chutneys and dosai batter">
-              <img src="/assets/img/dish1-thumb.jpg" alt="Stone grinder with chutney ingredients" loading="lazy" />
+            <a href="/assets/img/dish1.svg" class="thumb" data-lightbox data-caption="Hand-pounded chutneys and dosai batter">
+              <img src="/assets/img/dish1-thumb.svg" alt="Stone grinder with chutney ingredients" loading="lazy" />
             </a>
-            <a href="/assets/img/dish2.jpg" class="thumb" data-lightbox data-caption="Sunlit brassware and banana leaves">
-              <img src="/assets/img/dish2-thumb.jpg" alt="Banana leaf thali with brass bowls" loading="lazy" />
+            <a href="/assets/img/dish2.svg" class="thumb" data-lightbox data-caption="Sunlit brassware and banana leaves">
+              <img src="/assets/img/dish2-thumb.svg" alt="Banana leaf thali with brass bowls" loading="lazy" />
             </a>
-            <a href="/assets/img/dish3.jpg" class="thumb" data-lightbox data-caption="Millet idli with sesame oil drizzle">
-              <img src="/assets/img/dish3-thumb.jpg" alt="Millet idli closeup" loading="lazy" />
+            <a href="/assets/img/dish3.svg" class="thumb" data-lightbox data-caption="Millet idli with sesame oil drizzle">
+              <img src="/assets/img/dish3-thumb.svg" alt="Millet idli closeup" loading="lazy" />
             </a>
-            <a href="/assets/img/interior1.jpg" class="thumb" data-lightbox data-caption="Rustic wood and handloom textures">
-              <img src="/assets/img/interior1-thumb.jpg" alt="Restaurant interior with wooden textures" loading="lazy" />
+            <a href="/assets/img/interior1.svg" class="thumb" data-lightbox data-caption="Rustic wood and handloom textures">
+              <img src="/assets/img/interior1-thumb.svg" alt="Restaurant interior with wooden textures" loading="lazy" />
             </a>
           </div>
           <div class="align-center mt-24">
@@ -255,8 +252,8 @@
             <li><a href="/terms.html">Terms of Use</a></li>
           </ul>
           <div class="badges">
-            <img src="/assets/img/health-cert.png" alt="Certified hygiene grade A+" loading="lazy" />
-            <img src="/assets/img/award.png" alt="Design award nominee" loading="lazy" />
+            <img src="/assets/img/health-cert.svg" alt="Certified hygiene grade A+" loading="lazy" />
+            <img src="/assets/img/award.svg" alt="Design award nominee" loading="lazy" />
           </div>
         </div>
       </div>

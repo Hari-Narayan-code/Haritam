@@ -33,3 +33,8 @@ Mobile-first, high-performance, accessible static site for Haritam.
 
 - Serve over HTTPS with Brotli + HTTP/2
 - Set long cache for static assets with hash filenames (if using a bundler)
+
+## Assets
+
+- Placeholder images are SVGs under `assets/img/`. Replace with optimized AVIF/WebP/JPG and update HTML if needed.
+- For production, self-host fonts as WOFF2 and reference via `@font-face`.
