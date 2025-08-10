@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Our Menu — Haritam Restaurant</title>
+    <meta name="description" content="Explore Haritam's menu of elegant, healthy South Indian cuisine with vegan and vegetarian options." />
+    <meta property="og:title" content="Haritam Menu" />
+    <meta property="og:description" content="Explore our South Indian menu at Haritam." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://haritam.example/menu.html" />
+    <link rel="stylesheet" href="/assets/css/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header" role="banner">
+      <div class="container nav">
+        <a class="logo" href="/">Haritam</a>
+        <button class="nav__toggle" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu">
+          <span class="nav__bar" aria-hidden="true"></span>
+          <span class="nav__bar" aria-hidden="true"></span>
+          <span class="nav__bar" aria-hidden="true"></span>
+        </button>
+        <nav class="nav__links" aria-label="Primary">
+          <a href="/index.html" class="nav__link">Home</a>
+          <a href="/menu.html" class="nav__link is-active">Our Menu</a>
+          <a href="/reservations.html" class="nav__link">Reservations</a>
+          <a href="/our-story.html" class="nav__link">Our Story</a>
+          <a href="/contact.html" class="nav__link">Contact</a>
+        </nav>
+        <a class="btn btn--primary nav__cta" href="/reservations.html">Make a Reservation</a>
+      </div>
+      <div id="mobile-menu" class="nav__drawer" hidden>
+        <nav class="nav__drawer-inner" aria-label="Mobile">
+          <a href="/index.html" class="nav__link">Home</a>
+          <a href="/menu.html" class="nav__link is-active">Our Menu</a>
+          <a href="/reservations.html" class="nav__link">Reservations</a>
+          <a href="/our-story.html" class="nav__link">Our Story</a>
+          <a href="/contact.html" class="nav__link">Contact</a>
+          <a class="btn btn--primary w-100 mt-16" href="/reservations.html">Make a Reservation</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="section">
+      <div class="container">
+        <h1 class="section__title">Our Menu</h1>
+        <p class="section__lead">Ingredient-first, seasonal, and nourishing. Filter by category.</p>
+
+        <div class="filters" role="tablist" aria-label="Menu filters">
+          <button class="chip is-active" role="tab" aria-selected="true" data-filter="all">All</button>
+          <button class="chip" role="tab" aria-selected="false" data-filter="starters">Starters</button>
+          <button class="chip" role="tab" aria-selected="false" data-filter="mains">Mains</button>
+          <button class="chip" role="tab" aria-selected="false" data-filter="desserts">Desserts</button>
+          <button class="chip" role="tab" aria-selected="false" data-filter="vegan">Vegan</button>
+          <button class="chip" role="tab" aria-selected="false" data-filter="gluten-free">Gluten-free</button>
+        </div>
+
+        <div class="grid cards" id="menu-cards">
+          <article class="card menu-card" data-category="starters vegetarian gluten-free">
+            <h2 class="card__title">Millet Idli</h2>
+            <p class="card__desc">Steamed millet cakes, coconut chutney, sambar.</p>
+            <span class="card__meta">₹180</span>
+          </article>
+          <article class="card menu-card" data-category="starters vegan">
+            <h2 class="card__title">Raw Banana Cutlet</h2>
+            <p class="card__desc">Crispy, spiced patties, mint chutney.</p>
+            <span class="card__meta">₹220</span>
+          </article>
+          <article class="card menu-card" data-category="mains vegan gluten-free">
+            <h2 class="card__title">Kerala Avial</h2>
+            <p class="card__desc">Mixed vegetables in coconut-yogurt sauce, red rice.</p>
+            <span class="card__meta">₹380</span>
+          </article>
+          <article class="card menu-card" data-category="mains vegetarian">
+            <h2 class="card__title">Podi Ghee Dosai</h2>
+            <p class="card__desc">Crisp dosai, house podi, artisanal ghee.</p>
+            <span class="card__meta">₹260</span>
+          </article>
+          <article class="card menu-card" data-category="desserts vegetarian gluten-free">
+            <h2 class="card__title">Elaneer Payasam</h2>
+            <p class="card__desc">Tender coconut pudding with jaggery.</p>
+            <span class="card__meta">₹200</span>
+          </article>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <div class="container footer__grid">
+        <div>
+          <h3 class="footer__title">Haritam</h3>
+          <p>123 Heritage Lane, Chennai, TN 600001</p>
+          <p>+91-98765-43210</p>
+          <p>Open daily 11:30 – 22:30</p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul class="footer__links">
+            <li><a href="/menu.html">Our Menu</a></li>
+            <li><a href="/reservations.html">Reservations</a></li>
+            <li><a href="/our-story.html">Our Story</a></li>
+            <li><a href="/gallery.html">Gallery</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Trust & Legal</h4>
+          <ul class="footer__links">
+            <li><a href="/privacy.html">Privacy Policy</a></li>
+            <li><a href="/terms.html">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="container footer__bottom">
+        <p>&copy; <span id="year"></span> Haritam Restaurant. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <div id="lightbox" class="lightbox" hidden aria-modal="true" role="dialog" aria-label="Image viewer">
+      <button class="lightbox__close" aria-label="Close viewer">&times;</button>
+      <figure class="lightbox__figure">
+        <img class="lightbox__img" alt="" />
+        <figcaption class="lightbox__caption"></figcaption>
+      </figure>
+    </div>
+
+    <script type="module" src="/assets/js/main.js" defer></script>
+  </body>
+</html>

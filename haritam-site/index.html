@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Haritam Restaurant — Rustic Elegance, Healthy South Indian Cuisine</title>
+    <meta name="description" content="Haritam: upscale, authentic South Indian dining. Fresh, healthy cuisine in a pristine, elegant setting. Reserve your table or explore our menu.">
+    <meta name="theme-color" content="#F5F5DC" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet" />
+
+    <link rel="icon" href="/assets/img/icon.png" sizes="any" />
+    <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <meta property="og:title" content="Haritam Restaurant" />
+    <meta property="og:description" content="Rustic elegance meets healthy South Indian cuisine. Reserve your table." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://haritam.example/" />
+    <meta property="og:image" content="https://haritam.example/assets/img/hero.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="stylesheet" href="/assets/css/styles.css" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "Haritam Restaurant",
+      "url": "https://haritam.example/",
+      "image": "https://haritam.example/assets/img/hero.jpg",
+      "servesCuisine": ["South Indian", "Healthy", "Vegetarian", "Vegan"],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Heritage Lane",
+        "addressLocality": "Chennai",
+        "addressRegion": "TN",
+        "postalCode": "600001",
+        "addressCountry": "IN"
+      },
+      "telephone": "+91-98765-43210",
+      "priceRange": "₹₹",
+      "menu": "https://haritam.example/menu.html",
+      "acceptsReservations": "True",
+      "openingHoursSpecification": [{
+        "@type":"OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "11:30",
+        "closes": "22:30"
+      }]
+    }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="site-header" role="banner">
+      <div class="container nav">
+        <a class="logo" href="/">Haritam</a>
+        <button class="nav__toggle" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu">
+          <span class="nav__bar" aria-hidden="true"></span>
+          <span class="nav__bar" aria-hidden="true"></span>
+          <span class="nav__bar" aria-hidden="true"></span>
+        </button>
+        <nav class="nav__links" aria-label="Primary">
+          <a href="/index.html" class="nav__link is-active">Home</a>
+          <a href="/menu.html" class="nav__link">Our Menu</a>
+          <a href="/reservations.html" class="nav__link">Reservations</a>
+          <a href="/our-story.html" class="nav__link">Our Story</a>
+          <a href="/contact.html" class="nav__link">Contact</a>
+        </nav>
+        <a class="btn btn--primary nav__cta" href="/reservations.html">Make a Reservation</a>
+      </div>
+      <div id="mobile-menu" class="nav__drawer" hidden>
+        <nav class="nav__drawer-inner" aria-label="Mobile">
+          <a href="/index.html" class="nav__link is-active">Home</a>
+          <a href="/menu.html" class="nav__link">Our Menu</a>
+          <a href="/reservations.html" class="nav__link">Reservations</a>
+          <a href="/our-story.html" class="nav__link">Our Story</a>
+          <a href="/contact.html" class="nav__link">Contact</a>
+          <a class="btn btn--primary w-100 mt-16" href="/reservations.html">Make a Reservation</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-label="Hero">
+        <div class="container hero__content" data-reveal>
+          <h1 class="hero__title">Rustic Elegance. Pure, Healthy South Indian Cuisine.</h1>
+          <p class="hero__subtitle">Honoring culinary heritage with pristine freshness and modern grace.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="/reservations.html">Make a Reservation</a>
+            <a class="btn btn--secondary" href="/menu.html">Explore Menu</a>
+          </div>
+        </div>
+        <picture>
+          <source srcset="/assets/img/hero.avif" type="image/avif" />
+          <source srcset="/assets/img/hero.webp" type="image/webp" />
+          <img class="hero__image" src="/assets/img/hero.jpg" alt="Sunlit dining room at Haritam with wooden textures and brass accents" loading="eager" />
+        </picture>
+      </section>
+
+      <section class="about section" aria-labelledby="about-title">
+        <div class="container" data-reveal>
+          <h2 id="about-title" class="section__title">Our Story</h2>
+          <p class="section__lead">At Haritam, we prepare food as heritage and wellness: time-honored South Indian recipes, fresh seasonal ingredients, immaculate kitchens.</p>
+          <a class="link-more" href="/our-story.html">Discover our philosophy</a>
+        </div>
+      </section>
+
+      <section class="menu-preview section" aria-labelledby="menu-title">
+        <div class="container" data-reveal>
+          <h2 id="menu-title" class="section__title">Menu Highlights</h2>
+          <div class="filters" role="tablist" aria-label="Menu filters">
+            <button class="chip is-active" role="tab" aria-selected="true" data-filter="all">All</button>
+            <button class="chip" role="tab" aria-selected="false" data-filter="starters">Starters</button>
+            <button class="chip" role="tab" aria-selected="false" data-filter="mains">Mains</button>
+            <button class="chip" role="tab" aria-selected="false" data-filter="vegan">Vegan</button>
+          </div>
+          <div class="grid cards" id="menu-cards">
+            <article class="card menu-card" data-category="starters vegetarian">
+              <h3 class="card__title">Millet Idli</h3>
+              <p class="card__desc">Steamed, fluffy millet cakes with cold-pressed sesame oil chutney.</p>
+              <span class="card__meta">₹180</span>
+            </article>
+            <article class="card menu-card" data-category="mains vegan">
+              <h3 class="card__title">Coconut Curry Thali</h3>
+              <p class="card__desc">Seasonal vegetables in coconut gravy, brown rice, and kootu.</p>
+              <span class="card__meta">₹420</span>
+            </article>
+            <article class="card menu-card" data-category="starters vegan">
+              <h3 class="card__title">Banana Flower Fritters</h3>
+              <p class="card__desc">Crisp, delicate fritters with stone-ground spice blend.</p>
+              <span class="card__meta">₹240</span>
+            </article>
+            <article class="card menu-card" data-category="mains vegetarian">
+              <h3 class="card__title">Lemon Rasam & Red Rice</h3>
+              <p class="card__desc">Light, tangy broth with heirloom tomatoes and curry leaves.</p>
+              <span class="card__meta">₹360</span>
+            </article>
+          </div>
+          <div class="align-center mt-24">
+            <a class="btn btn--secondary" href="/menu.html">View Full Menu</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="gallery-strip section" aria-labelledby="gallery-title">
+        <div class="container" data-reveal>
+          <h2 id="gallery-title" class="section__title">Gallery</h2>
+          <div class="grid thumbs">
+            <a href="/assets/img/dish1.jpg" class="thumb" data-lightbox data-caption="Hand-pounded chutneys and dosai batter">
+              <img src="/assets/img/dish1-thumb.jpg" alt="Stone grinder with chutney ingredients" loading="lazy" />
+            </a>
+            <a href="/assets/img/dish2.jpg" class="thumb" data-lightbox data-caption="Sunlit brassware and banana leaves">
+              <img src="/assets/img/dish2-thumb.jpg" alt="Banana leaf thali with brass bowls" loading="lazy" />
+            </a>
+            <a href="/assets/img/dish3.jpg" class="thumb" data-lightbox data-caption="Millet idli with sesame oil drizzle">
+              <img src="/assets/img/dish3-thumb.jpg" alt="Millet idli closeup" loading="lazy" />
+            </a>
+            <a href="/assets/img/interior1.jpg" class="thumb" data-lightbox data-caption="Rustic wood and handloom textures">
+              <img src="/assets/img/interior1-thumb.jpg" alt="Restaurant interior with wooden textures" loading="lazy" />
+            </a>
+          </div>
+          <div class="align-center mt-24">
+            <a class="btn btn--secondary" href="/gallery.html">View Full Gallery</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="testimonials section" aria-labelledby="testimonials-title">
+        <div class="container" data-reveal>
+          <h2 id="testimonials-title" class="section__title">What Our Guests Say</h2>
+          <div class="grid testimonials__grid">
+            <figure class="testimonial">
+              <blockquote>“The cleanest, freshest South Indian food I’ve tasted. Every detail feels intentional.”</blockquote>
+              <figcaption>— Ananya R.</figcaption>
+            </figure>
+            <figure class="testimonial">
+              <blockquote>“A sanctuary. Subtle flavors, elegant space, and true warmth.”</blockquote>
+              <figcaption>— Vikram S.</figcaption>
+            </figure>
+            <figure class="testimonial">
+              <blockquote>“Healthy without compromise. We left feeling light and inspired.”</blockquote>
+              <figcaption>— Meera K.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="reservation-inline section" aria-labelledby="reserve-title">
+        <div class="container" data-reveal>
+          <h2 id="reserve-title" class="section__title">Reserve a Table</h2>
+          <form id="reservation-form" class="form needs-validation" novalidate>
+            <div class="grid form__grid">
+              <div class="form__field">
+                <label for="res-name">Full Name</label>
+                <input id="res-name" name="name" type="text" required autocomplete="name" />
+                <p class="field__error" aria-live="polite"></p>
+              </div>
+              <div class="form__field">
+                <label for="res-contact">Contact (Email or Phone)</label>
+                <input id="res-contact" name="contact" type="text" required autocomplete="email" />
+                <p class="field__error" aria-live="polite"></p>
+              </div>
+              <div class="form__field">
+                <label for="res-date">Date</label>
+                <input id="res-date" name="date" type="date" required />
+                <p class="field__error" aria-live="polite"></p>
+              </div>
+              <div class="form__field">
+                <label for="res-time">Time</label>
+                <input id="res-time" name="time" type="time" required />
+                <p class="field__error" aria-live="polite"></p>
+              </div>
+              <div class="form__field">
+                <label for="res-guests">Guests</label>
+                <input id="res-guests" name="guests" type="number" min="1" max="12" value="2" required />
+                <p class="field__error" aria-live="polite"></p>
+              </div>
+            </div>
+            <div class="align-center mt-16">
+              <button class="btn btn--primary" type="submit">Confirm Reservation</button>
+              <p class="form__note">Open daily 11:30–22:30. We’ll confirm by email or SMS.</p>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <div class="container footer__grid">
+        <div>
+          <h3 class="footer__title">Haritam</h3>
+          <p>123 Heritage Lane, Chennai, TN 600001</p>
+          <p>+91-98765-43210</p>
+          <p>Open daily 11:30 – 22:30</p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul class="footer__links">
+            <li><a href="/menu.html">Our Menu</a></li>
+            <li><a href="/reservations.html">Reservations</a></li>
+            <li><a href="/our-story.html">Our Story</a></li>
+            <li><a href="/gallery.html">Gallery</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Trust & Legal</h4>
+          <ul class="footer__links">
+            <li><a href="/privacy.html">Privacy Policy</a></li>
+            <li><a href="/terms.html">Terms of Use</a></li>
+          </ul>
+          <div class="badges">
+            <img src="/assets/img/health-cert.png" alt="Certified hygiene grade A+" loading="lazy" />
+            <img src="/assets/img/award.png" alt="Design award nominee" loading="lazy" />
+          </div>
+        </div>
+      </div>
+      <div class="container footer__bottom">
+        <p>&copy; <span id="year"></span> Haritam Restaurant. All rights reserved.</p>
+        <div class="social">
+          <a href="#" aria-label="Instagram">Instagram</a>
+          <a href="#" aria-label="Facebook">Facebook</a>
+        </div>
+      </div>
+    </footer>
+
+    <div id="lightbox" class="lightbox" hidden aria-modal="true" role="dialog" aria-label="Image viewer">
+      <button class="lightbox__close" aria-label="Close viewer">&times;</button>
+      <figure class="lightbox__figure">
+        <img class="lightbox__img" alt="" />
+        <figcaption class="lightbox__caption"></figcaption>
+      </figure>
+    </div>
+
+    <script type="module" src="/assets/js/main.js" defer></script>
+  </body>
+</html>

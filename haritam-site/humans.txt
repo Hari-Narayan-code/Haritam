@@ -1,0 +1,7 @@
+/* TEAM */
+Designer/Developer: Haritam Project Team
+AI Assistant: Cursor + GPT-5
+
+/* SITE */
+Standards: HTML5, CSS3, ES2020
+Components: Accessible, mobile-first, fast
