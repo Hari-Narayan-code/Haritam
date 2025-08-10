@@ -63,3 +63,11 @@ npm run wire:images
 ```
 
 - This replaces the homepage hero and gallery thumbnails with the optimized outputs.
+Optionally choose a specific hero image (use base name or filename; extension ignored):
+
+```bash
+npm run wire:images -- --hero "your-hero-file-name"
+# examples
+npm run wire:images -- --hero "hero"
+npm run wire:images -- --hero "Interior 1.jpg"
+```
