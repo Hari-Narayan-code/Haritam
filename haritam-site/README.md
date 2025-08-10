@@ -71,3 +71,4 @@ npm run wire:images -- --hero "your-hero-file-name"
 npm run wire:images -- --hero "hero"
 npm run wire:images -- --hero "Interior 1.jpg"
 ```
+- Default behavior picks a random hero from available optimized images. Use `--hero` to force a specific one.

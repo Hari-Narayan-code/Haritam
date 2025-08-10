@@ -44,10 +44,9 @@ async function listBases() {
 
 function chooseHero(bases, preferred) {
   if (preferred && bases.includes(preferred)) return preferred;
-  const byPref = bases.find(b => /hero/i.test(b))
-    || bases.find(b => /interior/i.test(b))
-    || bases[0];
-  return byPref;
+  // Randomly choose if no preferred provided
+  const idx = Math.floor(Math.random() * bases.length);
+  return bases[idx];
 }
 
 function buildPicture(base, sizes = [800, 1200, 1600]) {
@@ -88,9 +87,10 @@ async function main() {
     console.error('No optimized images found in assets/img');
     process.exit(1);
   }
-  await rewriteIndex(bases, hero);
+  const chosen = chooseHero(bases, hero);
+  await rewriteIndex(bases, chosen);
   await rewriteGallery(bases);
-  console.log(`Rewired pages. Hero: ${chooseHero(bases, hero)}`);
+  console.log(`Rewired pages. Hero: ${chosen}`);
 }
 
 main().catch((e) => { console.error(e); process.exit(1); });
